@@ -17,7 +17,7 @@ PositionInterpolator spherePosition = new PositionInterpolator();
 /*========== CAMERA ==========*/
 Camera camera;
 
-// TODO: Create animations for interpolators
+// Create animations for interpolators
 Animation cubeAnim;
 ArrayList<PositionInterpolator> cubes = new ArrayList<PositionInterpolator>();
 
@@ -40,11 +40,11 @@ void setup()
   sphereForward.SetAnimation(sphereAnim);
 
   /*====== Create Animations For Cubes ======*/
-  //Step 1: Load cube animation
+  // Load cube animation
   cubeAnim = new Animation();
   for(int i = 0; i < 4; i++)
   {
-    //Make keyframes for each cube-- i decides position on z/blue
+    // Make keyframes for each cube-- i decides position on z/blue
     KeyFrame kf = new KeyFrame();
       kf.time = (i + 1) * 0.5f;
       float z;
@@ -55,7 +55,7 @@ void setup()
       kf.points.add(new PVector(0, 0, z));
     cubeAnim.keyFrames.add(kf);
   }
-  //Step 2: Set cube animations in interpolators
+  // Set cube animations in interpolators
   for(int i = 0; i < 11; i++)
   {
     PositionInterpolator cubeSide = new PositionInterpolator();
@@ -68,7 +68,7 @@ void setup()
   
   /*====== Create Animations For Spheroid (spherePosition) ======*/
   Animation spherePos = new Animation();
-  //Step 1: Create and set keyframes
+  // Create and set keyframes
   for(int i = 0; i < 4; i++)
   {
     KeyFrame kf = new KeyFrame();
@@ -169,35 +169,35 @@ Animation ReadAnimationFromFile(String fileName)
   String line;
   try
   {
-    //Get number of frames in animation (first line)
+    // Get number of frames in animation (first line)
     line = reader.readLine();
     int framecount = int(line);
     
-    //Get number of vertices per frame (second line)
+    // Get number of vertices per frame (second line)
     line = reader.readLine();
     int vertcount = int(line);
     
-    //Parse through each frame
+    // Parse through each frame
     for(int i = 0; i < framecount; i++)
     {
       KeyFrame kf = new KeyFrame();
       
-      //Get and set time data
+      // Get and set time data
       line = reader.readLine();
       float kftime = float(line);
       kf.time = kftime;
       
-      //Parse through each vertex
+      // Parse through each vertex
       for(int j = 0; j < vertcount; j++)
       {
-        //Get and set vertex data
+        // Get and set vertex data
         line = reader.readLine();
         String[] pos = split(line, " ");
         PVector vertex = new PVector(float(pos[0]), float(pos[1]), float(pos[2]));
         kf.points.add(vertex);
       }
       
-      //Add new frame to animation
+      // Add new frame to animation
       animation.keyFrames.add(kf);
     }
     
@@ -217,12 +217,12 @@ Animation ReadAnimationFromFile(String fileName)
 
 void DrawGrid()
 {
-  // TODO: Draw the grid
+  // Draw the grid
   strokeWeight(8); 
-  //Red: x axis
+  // X axis (red)
   stroke(255,0,0);
   line(-100,0,0,100,0,0);
-  //Blue: z axis
+  // Z axis (blue)
   stroke(0,0,255);
   line(0,0,-100,0,0,100);
   
