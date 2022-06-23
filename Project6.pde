@@ -1,4 +1,3 @@
-// VertexAnimation Project - Student Version
 import java.io.*;
 import java.util.*;
 
