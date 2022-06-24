@@ -1,4 +1,6 @@
 # Animation-Project
+Made Fall 2021
+
 I made this as part of my digital arts & sciences class. To animate an object, we
 linearly interpolated between the objects' vertex positions from one keyframe to the next.
 
